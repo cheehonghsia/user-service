@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>User Management</h1>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'GetAll')" id="defaultOpen">Get All</button>
+            <button class="tablinks" onclick="openTab(event, 'Get')">Get</button>
+            <button class="tablinks" onclick="openTab(event, 'Post')">Post</button>
+            <button class="tablinks" onclick="openTab(event, 'Put')">Put</button>
+            <button class="tablinks" onclick="openTab(event, 'Delete')">Delete</button>
+        </div>
+
+        <div id="GetAll" class="tabcontent">
+            <h3>Get All Users</h3>
+            <button type="button" id="getAllButton">Get All Users</button>
+        </div>
+
+        <div id="Get" class="tabcontent">
+            <h3>Get User by ID</h3>
+            <input type="text" id="getUserId" placeholder="User ID">
+            <button type="button" id="getButton">Get User</button>
+        </div>
+
+        <div id="Post" class="tabcontent">
+            <h3>Create New User</h3>
+            <textarea id="postRequestBody" placeholder="User Data (JSON)"></textarea>
+            <button type="button" id="postButton">Create User</button>
+        </div>
+
+        <div id="Put" class="tabcontent">
+            <h3>Update User</h3>
+            <input type="text" id="putUserId" placeholder="User ID">
+            <textarea id="putRequestBody" placeholder="User Data (JSON)"></textarea>
+            <button type="button" id="putButton">Update User</button>
+        </div>
+
+        <div id="Delete" class="tabcontent">
+            <h3>Delete User</h3>
+            <input type="text" id="deleteUserId" placeholder="User ID">
+            <button type="button" id="deleteButton">Delete User</button>
+        </div>
+
+        <div id="response">
+            <h2>Response</h2>
+            <div class="pretty-print-option">
+                <input type="checkbox" id="prettyPrint" checked>
+                <label for="prettyPrint">Pretty Print</label>
+            </div>
+            <pre id="responseBody"></pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

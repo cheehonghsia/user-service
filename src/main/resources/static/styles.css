@@ -1,0 +1,204 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h1, h2, h3 {
+    color: #000000;
+    text-align: center;
+}
+
+form {
+    background: #ffffff;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    color: #000000;
+}
+
+input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button {
+    flex: 1;
+    min-width: 120px;
+    padding: 12px;
+    background: #FFA500; /* Changed to orange */
+    color: #000000; /* Changed to black */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background: #FF8C00; /* Darker orange for hover state */
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#response {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#response h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#responseBody {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    border: 1px solid #e9ecef;
+    color: #000000;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 1rem;
+    }
+    
+    button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Add this to your existing CSS */
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    border-radius: 5px 5px 0 0;
+    display: flex; /* Add this line */
+}
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    flex: 1; /* Add this line */
+    color: #000000;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #FFA500; /* Changed to orange */
+    color: #000000; /* Changed to black */
+}
+
+.tabcontent {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #000000;
+}
+
+button {
+    width: 100%;
+    background-color: #FFA500; /* Changed to orange */
+    color: #000000; /* Changed to black */
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #FF8C00; /* Darker orange for hover state */
+}
+
+/* Add this to your existing CSS */
+
+.pretty-print-option {
+    margin-bottom: 10px;
+}
+
+.pretty-print-option input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.pretty-print-option label {
+    font-weight: bold;
+}

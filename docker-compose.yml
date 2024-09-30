@@ -1,0 +1,11 @@
+services:
+  user-service:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb
+      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.h2.Driver
+      - SPRING_JPA_DATABASE-PLATFORM=org.hibernate.dialect.H2Dialect
+    volumes:
+      - ./target:/app/target
