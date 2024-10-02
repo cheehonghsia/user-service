@@ -24,4 +24,3 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_JAVA: true
-          JAVA_FILE_NAME: checkstyle.xml
