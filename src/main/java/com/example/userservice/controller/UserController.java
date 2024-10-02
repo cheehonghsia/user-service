@@ -9,6 +9,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * REST controller for managing User entities.
+ * <p>
+ * This controller provides CRUD operations for User resources via HTTP endpoints.
+ * It handles the following operations:
+ * <ul>
+ *   <li>GET /api/users - Retrieve all users</li>
+ *   <li>GET /api/users/{id} - Retrieve a specific user by ID</li>
+ *   <li>POST /api/users - Create a new user</li>
+ *   <li>PUT /api/users/{id} - Update an existing user</li>
+ *   <li>DELETE /api/users/{id} - Delete a user</li>
+ * </ul>
+ * <p>
+ * This controller delegates business logic to the {@link UserService}.
+ */
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
