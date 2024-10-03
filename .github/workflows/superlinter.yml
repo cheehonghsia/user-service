@@ -24,3 +24,11 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_JAVA: true
+
+     - name: Run Checkstyle
+     uses: nikitasavinov/checkstyle-action@master
+     with:
+       github_token: ${{ secrets.GITHUB_TOKEN }}
+       reporter: 'github-pr-check'
+       tool_name: 'checkstyle'
+       checkstyle_config: 'checkstyle.xml'
