@@ -41,11 +41,11 @@ public final class UserController {
     /**
      * Constructs a new UserController with the given UserService.
      *
-     * @param userService the user service to use
+     * @param service the user service to use
      */
     @Autowired
-    public UserController(final UserService userService) {
-        this.userService = userService;
+    public UserController(final UserService service) {
+        this.userService = service;
     }
 
     /**
@@ -91,7 +91,7 @@ public final class UserController {
      */
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable final Long id,
-                                           @RequestBody final User userDetails) {
+            @RequestBody final User userDetails) {
         return userService.updateUser(id, userDetails)
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
