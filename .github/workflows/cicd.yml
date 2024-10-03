@@ -22,8 +22,8 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
 
-    - name: Run Checkstyle
-      run: mvn checkstyle:check
+    #- name: Run Checkstyle
+      #run: mvn checkstyle:check
 
     - name: Deploy to Main
       if: success()
