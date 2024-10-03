@@ -33,7 +33,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api/users")
-public final class UserController {
+public final class UserController {     
 
     /** The user service. */
     private final UserService userService;
