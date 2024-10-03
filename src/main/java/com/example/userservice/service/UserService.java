@@ -21,11 +21,11 @@ public class UserService {
     @PostConstruct
     public void initializeUsers() {
         // Add some existing users
-        addUser(new User("John Doe", "john@example.com"));
-        addUser(new User("Jane Smith", "jane@example.com"));
-        addUser(new User("Bob Johnson", "bob@example.com"));
-        addUser(new User("Alice Brown", "alice@example.com"));
-        addUser(new User("Charlie Davis", "charlie@example.com"));
+        addUser(new User("John", "Doe", "john@example.com"));
+        addUser(new User("Jane", "Smith", "jane@example.com"));
+        addUser(new User("Bob", "Johnson", "bob@example.com"));
+        addUser(new User("Alice", "Brown", "alice@example.com"));
+        addUser(new User("Charlie", "Davis", "charlie@example.com"));
     }
 
     public List<User> getAllUsers() {
@@ -43,7 +43,8 @@ public class UserService {
     public Optional<User> updateUser(Long id, User updatedUser) {
         return userRepository.findById(id)
                 .map(existingUser -> {
-                    existingUser.setName(updatedUser.getName());
+                    existingUser.setFirstName(updatedUser.getFirstName());
+                    existingUser.setLastName(updatedUser.getLastName());
                     existingUser.setEmail(updatedUser.getEmail());
                     return userRepository.save(existingUser);
                 });
