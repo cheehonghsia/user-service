@@ -15,7 +15,7 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
-    private String firstName;
+    private String firstName; //firstname
 
     @Column(nullable = false)
     private String lastName;
