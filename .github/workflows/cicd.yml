@@ -47,3 +47,15 @@ jobs:
         gh pr merge ${{ steps.cpr.outputs.pull-request-number }} --auto --merge
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Update develop
+      if: success()
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git checkout develop
+        git pull origin develop
+        git merge origin/main
+        git push origin develop
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
