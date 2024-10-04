@@ -21,7 +21,7 @@ public class User {
     private String lastName;
 
     @Column(nullable = false)
-    private String email;  // New email field
+    private String email;
 
     // Default constructor
     public User() {
