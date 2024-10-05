@@ -1,4 +1,4 @@
-name: Deploy to Main
+name: Deploy to Main with PR
 
 on:
   push:
