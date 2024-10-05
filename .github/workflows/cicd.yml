@@ -41,8 +41,18 @@ jobs:
         git merge develop --allow-unrelated-histories
         git push origin main
 
+    - name: Merge develop into main
+      env:
+        ACTIONS_DEPLOY_TOKEN: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
+      run: |
+        git checkout main
+        git merge develop --allow-unrelated-histories
+        git push https://github-actions:${{ secrets.ACTIONS_DEPLOY_TOKEN }}@github.com/cheehonghsia/user-service.git main
+
     - name: Update develop with latest main
+      env:
+        ACTIONS_DEPLOY_TOKEN: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
       run: |
         git checkout develop
         git merge main --allow-unrelated-histories
-        git push origin develop
+        git push https://github-actions:${{ secrets.ACTIONS_DEPLOY_TOKEN }}@github.com/cheehonghsia/user-service.git develop
