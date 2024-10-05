@@ -44,5 +44,5 @@ jobs:
     - name: Update develop with latest main
       run: |
         git checkout develop
-        git pull main --allow-unrelated-histories
+        git merge main --allow-unrelated-histories
         git push origin develop
