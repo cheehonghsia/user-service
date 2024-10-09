@@ -44,10 +44,10 @@ jobs:
         git config --global user.email 'github-actions@github.com'
 
     - name: Sync Develop with Main
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}  # Use the PAT token
       run: |
         git fetch origin
         git checkout main
         git merge origin/develop --allow-unrelated-histories
-        git push origin main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the default token
+        git push https://x-access-token:${GITHUB_TOKEN}@github.com/cheehonghsia/user-service.git main
