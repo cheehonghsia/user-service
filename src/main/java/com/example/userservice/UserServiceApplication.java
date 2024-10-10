@@ -23,6 +23,7 @@ public class UserServiceApplication {
 	 * @param args command line arguments passed to the application
 	 */
 	public static void main(String[] args) {
+		// Set the active profile to "docker" when running in Docker
 		SpringApplication.run(UserServiceApplication.class, args);
 	}
 

@@ -10,5 +10,5 @@ COPY target/*.jar app.jar
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
-# Run the jar file
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run the jar file with the active profile set to prod
+ENTRYPOINT ["java", "-jar", "/app/app.jar", "--spring.profiles.active=prod"]
