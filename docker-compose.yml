@@ -1,11 +1,22 @@
+version: '3.8'  # Specify the version of Docker Compose
+
 services:
   user-service:
     build: .
     ports:
       - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb
-      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.h2.Driver
-      - SPRING_JPA_DATABASE-PLATFORM=org.hibernate.dialect.H2Dialect
+      SPRING_PROFILES_ACTIVE: prod  # Set active profile to prod
     volumes:
       - ./target:/app/target
+    depends_on:
+      - db  # Ensure the db service starts before user-service
+
+  db:  # PostgreSQL service
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: testdb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
