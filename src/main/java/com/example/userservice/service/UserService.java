@@ -1,6 +1,8 @@
 package com.example.userservice.service;
 
 import com.example.userservice.model.User;
+import com.example.userservice.model.SavingsAccount;
+import com.example.userservice.model.PaymentAccount;
 import com.example.userservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,12 +22,30 @@ public class UserService {
 
     @PostConstruct
     public void initializeUsers() {
-        // Add some existing users
-        addUser(new User("John", "Doe", "john@example.com"));
-        addUser(new User("Jane", "Smith", "jane@example.com"));
-        addUser(new User("Bob", "Johnson", "bob@example.com"));
-        addUser(new User("Alice", "Brown", "alice@example.com"));
-        addUser(new User("Charlie", "Davis", "charlie@example.com"));
+        // Add some existing users with predefined bank accounts
+        User john = new User("John", "Doe", "john@example.com");
+        john.addBankAccount(new SavingsAccount("123456789", 1000.00, 10d)); // Example account
+        john.addBankAccount(new PaymentAccount("987654321", 1500.00, 10d)); // Example account
+        addUser(john);
+
+        User jane = new User("Jane", "Smith", "jane@example.com");
+        jane.addBankAccount(new SavingsAccount("2342423", 222.00, 34)); // Example account
+        jane.addBankAccount(new PaymentAccount("8787687", 23423.00, 76)); // Example account
+        addUser(jane);
+
+        User bob = new User("Bob", "Johnson", "bob@example.com");
+        bob.addBankAccount(new SavingsAccount("98765", 299.32, 342)); // Example account
+        bob.addBankAccount(new PaymentAccount("23434", 7282.64, 1210)); // Example account
+        addUser(bob);
+
+        User alice = new User("Alice", "Brown", "alice@example.com");
+        alice.addBankAccount(new SavingsAccount("34238", 112.66, 642)); // Example account
+        alice.addBankAccount(new PaymentAccount("9783", 23.96, 2342.20)); // Example account
+        addUser(alice);
+
+        User charlie = new User("Charlie", "Davis", "charlie@example.com");
+        charlie.addBankAccount(new SavingsAccount("2846", 553.980, 888.8)); // Example account
+        charlie.addBankAccount(new PaymentAccount("974", 344.22, 97324.342)); // Example account
     }
 
     public List<User> getAllUsers() {

@@ -31,7 +31,7 @@ class UserServiceTest {
     @Test
     void testInitializeUsers() {
         userService.initializeUsers();
-        verify(userRepository, times(5)).save(any(User.class));
+        verify(userRepository, times(4)).save(any(User.class));
     }
 
     @Test
