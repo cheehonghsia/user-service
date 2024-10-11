@@ -49,14 +49,14 @@ class UserTest {
     void testToString() {
         User user = new User("John", "Doe", "john@example.com");
         user.setId(1L);
-        String expected = "User{id=1, firstName='John', lastName='Doe', email='john@example.com'}";
+        String expected = "User{id=1, firstName='John', lastName='Doe', email='john@example.com', bankAccounts=[]}";
         assertEquals(expected, user.toString());
     }
 
     @Test
     void testToStringWithNullId() {
         User user = new User("John", "Doe", "john@example.com");
-        String expected = "User{id=null, firstName='John', lastName='Doe', email='john@example.com'}";
+        String expected = "User{id=null, firstName='John', lastName='Doe', email='john@example.com', bankAccounts=[]}";
         assertEquals(expected, user.toString());
     }
 }

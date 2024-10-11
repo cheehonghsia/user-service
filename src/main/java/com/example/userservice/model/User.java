@@ -6,6 +6,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.FetchType;
+import java.util.ArrayList;
+import java.util.List;
+import jakarta.persistence.CascadeType;
 
 @Entity
 @Table(name = "users")
@@ -22,6 +28,10 @@ public class User {
 
     @Column(nullable = false)
     private String email;
+
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private List<BankAccount> bankAccounts = new ArrayList<>();
 
     // Default constructor
     public User() {
@@ -60,13 +70,24 @@ public class User {
         this.lastName = lastName;
     }
 
-    // New getter and setter for email
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<BankAccount> getBankAccounts() {
+        return bankAccounts;
+    }
+
+    public void setBankAccounts(List<BankAccount> bankAccounts) {
+        this.bankAccounts = bankAccounts;
+    }
+
+    public void addBankAccount(BankAccount account) { // Add this method
+        bankAccounts.add(account);
     }
 
     @Override
@@ -76,6 +97,7 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", bankAccounts=" + bankAccounts +
                 '}';
     }
 }
