@@ -6,10 +6,10 @@ import com.example.userservice.model.PaymentAccount;
 import com.example.userservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import jakarta.annotation.PostConstruct;
 import java.util.List;
 import java.util.Optional;
+import java.util.Collections;
+import javax.annotation.PostConstruct; // Add this import
 
 @Service
 public class UserService {
@@ -18,6 +18,7 @@ public class UserService {
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
+        this.initializeUsers();
     }
 
     @PostConstruct
@@ -49,7 +50,8 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        List<User> users = userRepository.findAll(); // Fetch users from the repository
+        return users != null ? users : Collections.emptyList(); // Ensure non-null return
     }
 
     public Optional<User> getUserById(Long id) {

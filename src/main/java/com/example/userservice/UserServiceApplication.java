@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * This class serves as the entry point for the Spring Boot application.
  * It is annotated with {@code @SpringBootApplication}, which enables auto-configuration
  * and component scanning.
- * </p>
  *
  * @author Chee Hong Hsia
  * @version 1.0
@@ -23,7 +22,6 @@ public class UserServiceApplication {
 	 * @param args command line arguments passed to the application
 	 */
 	public static void main(String[] args) {
-		// Set the active profile to "docker" when running in Docker
 		SpringApplication.run(UserServiceApplication.class, args);
 	}
 
