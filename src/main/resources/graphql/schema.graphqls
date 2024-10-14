@@ -1,0 +1,25 @@
+# src/main/resources/graphql/schema.graphqls
+
+type User {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    bankAccounts: [BankAccount!]!
+}
+
+type BankAccount {
+    id: ID!
+    accountNumber: String!
+    balance: Float!
+}
+
+type Query {
+    getAllUsers: [User!]!
+    getUserById(id: ID!): User
+}
+
+type Mutation {
+    createUser(firstName: String!, lastName: String!, email: String!): User!
+}
+

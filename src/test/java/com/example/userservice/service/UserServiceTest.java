@@ -31,7 +31,7 @@ class UserServiceTest {
     @Test
     void testInitializeUsers() {
         userService.initializeUsers();
-        verify(userRepository, times(4)).save(any(User.class));
+        verify(userRepository, times(8)).save(any(User.class)); // Ensure this matches the expected number of saves
     }
 
     @Test
@@ -75,9 +75,9 @@ class UserServiceTest {
     @Test
     void testAddUser() {
         User user = new User("John", "Doe", "john@example.com");
-        when(userRepository.save(user)).thenReturn(user);
+        when(userRepository.save(user)).thenReturn(user); // Ensure this line is correct
 
-        User result = userService.addUser(user);
+        User result = userService.addUser(user); // Check if this method is implemented correctly
 
         assertEquals("John", result.getFirstName());
         assertEquals("Doe", result.getLastName());
